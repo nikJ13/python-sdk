@@ -21,6 +21,7 @@ def call(method, url, **kwargs):
 
     response = requests.request(method, url, **kwargs)
     code = response.status_code
+    print(response)
     if response.ok:
         return response
     elif code == 400:

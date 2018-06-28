@@ -83,7 +83,7 @@ class Vehicle(object):
         return {
             'data': response.json(),
             'unit_system': response.headers['sc-unit-system'],
-            'age': dateutil.parser.parse(response.headers['sc-data-age']),
+            'age': dateutil.parser.parse(response.headers['sc-data-age'] or None) or None,
         }
 
     def location(self):
@@ -97,7 +97,7 @@ class Vehicle(object):
 
         return {
             'data': response.json(),
-            'age': dateutil.parser.parse(response.headers['sc-data-age']),
+            'age': dateutil.parser.parse(response.headers['sc-data-age']) or None,
         }
 
     def unlock(self):

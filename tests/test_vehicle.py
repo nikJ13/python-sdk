@@ -130,6 +130,23 @@ class TestVehicle(unittest.TestCase):
         self.assertEqual(response['unit_system'], 'metric')
         self.assertEqual(response['age'], dateutil.parser.parse(age))
 
+    def test_odometer_no_age(self):
+        data = {
+            'odometer': 1234
+        }
+
+        age = '2018-04-30T22:28:52+00:00'
+        self.queue('GET', 'odometer', body=data, headers={
+            'sc-unit-system': 'metric',
+            'sc-data-age': age,
+        })
+        response = self.vehicle.odometer()
+
+        self.check(response)
+        self.assertEqual(response['data'], data)
+        self.assertEqual(response['unit_system'], 'metric')
+        self.assertEqual(response['age'], None)
+
     @responses.activate
     def test_vin(self):
         data = { 'vin': 'fakeVin'}
