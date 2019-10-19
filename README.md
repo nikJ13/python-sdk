@@ -1,5 +1,7 @@
 # Smartcar Python Backend SDK [![Build Status][ci-image]][ci-url] [![PyPI version][pypi-image]][pypi-url]
 
+Edit: We were planning to add a feature where, the vehicle locates the nearest petrol station so that petrol can be filled or tire pressure can be brought back to normal condition. We can do this using the code which is used to determine the location of the car(already given below).
+
 ## Overview
 
 The [Smartcar API](https://smartcar.com/docs) lets you read vehicle data (location, odometer) and send commands to vehicles (lock, unlock) to connected vehicles using HTTP requests.
